@@ -11,4 +11,5 @@ export interface StackNavigationProps<
 
 export type MainRoutes = {
   Home: undefined;
+  About: undefined;
 };

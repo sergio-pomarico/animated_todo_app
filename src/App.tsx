@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigation from './routes/main';
+import Navigation from './routes';
 import {ThemeProvider} from './config/theme';
 
 const App = () => (
