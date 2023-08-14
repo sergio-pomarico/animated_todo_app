@@ -18,15 +18,9 @@ const palette = {
 };
 
 const theme = createTheme({
-  colors: {
-    black: palette.black,
-    white: palette.white,
-    red: palette.red,
-    blue: palette.blue,
-    yellow: palette.yellow,
-    primary: palette.blue70,
-    background: palette.paper10,
-    foreground: palette.paper900,
+  breakpoints: {
+    phone: 0,
+    tablet: 768,
   },
   spacing: {
     xs: 8,
@@ -36,7 +30,37 @@ const theme = createTheme({
     xl: 24,
     xxl: 32,
   },
-  textVariants: {},
+  colors: {
+    black: palette.black,
+    white: palette.white,
+    red: palette.red,
+    blue: palette.blue,
+    yellow: palette.yellow,
+    primary: palette.blue70,
+    background: palette.paper10,
+    foreground: palette.paper900,
+    secondaryForeground: palette.paper300,
+    sidebarBackground: palette.navy20,
+    sidebarForeround: palette.navy900,
+  },
+  borderRadii: {
+    s: 4,
+    m: 8,
+    l: 24,
+    xl: 64,
+  },
+  textVariants: {
+    defaults: {
+      color: 'foreground',
+      fontSize: 16,
+      lineHeight: 18,
+    },
+    sidebar: {
+      color: 'sidebarForeground',
+      fontSize: 16,
+      lineHeight: 18,
+    },
+  },
 });
 
 export default theme;
