@@ -22,14 +22,17 @@ const AnimatedPath = Animated.createAnimatedComponent(Path);
 
 interface Props {
   checked?: boolean;
+  checkmarkColor: string;
+  highlightColor: string;
+  boxOutlineColor: string;
 }
 
-const Checkbox: FC<Props> = ({checked}) => {
-  console.log(checked);
-  const checkmarkColor = '#000000';
-  const highlightColor = '#ff0000';
-  const boxOutlineColor = '#000000';
-
+const Checkbox: FC<Props> = ({
+  checked,
+  checkmarkColor,
+  highlightColor,
+  boxOutlineColor,
+}) => {
   const progress = useSharedValue(0);
 
   useEffect(() => {
@@ -65,7 +68,7 @@ const Checkbox: FC<Props> = ({checked}) => {
         <ClipPath id="clipPath">
           <Path
             d={outlineBoxPath}
-            fill="white"
+            fill={highlightColor}
             strokeWidth={7}
             strokeLinejoin="round"
             strokeLinecap="round"
