@@ -4,11 +4,15 @@ import {MainRoutes} from '../types/navigation';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import HomeScreen from '../screens/home';
 import AboutScreen from '../screens/about';
+import Drawer from '../shared/components/drawer';
 
 const AppStack = createDrawerNavigator<MainRoutes>();
 
 const MainStackNavigation = () => (
-  <AppStack.Navigator>
+  <AppStack.Navigator
+    initialRouteName="Home"
+    // eslint-disable-next-line react/no-unstable-nested-components
+    drawerContent={prop => <Drawer {...prop} />}>
     <AppStack.Screen name="Home" component={HomeScreen} />
     <AppStack.Screen name="About" component={AboutScreen} />
   </AppStack.Navigator>

@@ -1,14 +1,17 @@
-import React from 'react';
+import React, {useCallback, useState} from 'react';
 import {MainRoutes, StackNavigationProps} from '../types/navigation';
-import {ScrollView, Text, View} from 'react-native';
+import Box from '../shared/atoms/box';
+import Task from '../shared/components/task';
 
 const HomeScreen = ({}: StackNavigationProps<MainRoutes, 'Home'>) => {
+  const [checked, setChecked] = useState<boolean>(false);
+  const handlePressCheckbox = useCallback(() => {
+    setChecked(prev => !prev);
+  }, []);
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
-      <View>
-        <Text>Home</Text>
-      </View>
-    </ScrollView>
+    <Box flex={1} alignContent="center" backgroundColor="white">
+      <Task isDone={checked} onToggleCheckbox={handlePressCheckbox} />
+    </Box>
   );
 };
 

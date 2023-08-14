@@ -1,14 +1,17 @@
 import React from 'react';
 import {MainRoutes, StackNavigationProps} from '../types/navigation';
-import {ScrollView, Text, View} from 'react-native';
+import Box from '../shared/atoms/box';
+import Text from '../shared/atoms/text';
 
 const AboutScreen = ({}: StackNavigationProps<MainRoutes, 'About'>) => {
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
-      <View>
-        <Text>About</Text>
-      </View>
-    </ScrollView>
+    <Box
+      flex={1}
+      justifyContent="center"
+      alignContent="center"
+      backgroundColor="white">
+      <Text textAlign="center">About</Text>
+    </Box>
   );
 };
 
