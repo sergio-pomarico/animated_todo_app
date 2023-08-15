@@ -39,9 +39,9 @@ const theme = createTheme({
     primary: palette.blue70,
     background: palette.paper10,
     foreground: palette.paper900,
-    secondaryForeground: palette.paper300,
+    secondaryForeground: palette.paper100,
     sidebarBackground: palette.navy20,
-    sidebarForeround: palette.navy900,
+    sidebarForeground: palette.navy900,
   },
   borderRadii: {
     s: 4,
