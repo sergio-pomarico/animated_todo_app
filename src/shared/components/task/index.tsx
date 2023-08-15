@@ -24,14 +24,14 @@ const Task: FC<Props> = ({isDone, onToggleCheckbox}) => {
           <Checkbox
             checked={isDone}
             checkmarkColor={theme.colors.white}
-            boxOutlineColor="gray"
+            boxOutlineColor={theme.colors.foreground}
             highlightColor={theme.colors.primary}
           />
         </Touchable>
       </Box>
       <TaskLabel
         strikethrough={isDone}
-        inactiveTextColor={theme.colors.background}
+        inactiveTextColor={theme.colors.secondaryForeground}
         textColor={theme.colors.foreground}>
         Task name
       </TaskLabel>

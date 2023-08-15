@@ -12,7 +12,10 @@ const MainStackNavigation = () => (
   <AppStack.Navigator
     initialRouteName="Home"
     // eslint-disable-next-line react/no-unstable-nested-components
-    drawerContent={prop => <Drawer {...prop} />}>
+    drawerContent={prop => <Drawer {...prop} />}
+    screenOptions={{
+      drawerType: 'back',
+    }}>
     <AppStack.Screen name="Home" component={HomeScreen} />
     <AppStack.Screen name="About" component={AboutScreen} />
   </AppStack.Navigator>

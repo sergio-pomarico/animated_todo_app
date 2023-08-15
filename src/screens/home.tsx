@@ -9,7 +9,7 @@ const HomeScreen = ({}: StackNavigationProps<MainRoutes, 'Home'>) => {
     setChecked(prev => !prev);
   }, []);
   return (
-    <Box flex={1} alignContent="center" backgroundColor="white">
+    <Box flex={1} alignContent="center">
       <Task isDone={checked} onToggleCheckbox={handlePressCheckbox} />
     </Box>
   );
