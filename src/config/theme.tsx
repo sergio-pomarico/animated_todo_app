@@ -1,20 +1,24 @@
-import React, {ReactNode} from 'react';
+import React, {ReactNode, useContext} from 'react';
+import {ImageStyle, TextStyle, ViewStyle, FlexStyle} from 'react-native';
 import {
   useTheme as useReTheme,
   ThemeProvider as ReStyleThemeProvider,
 } from '@shopify/restyle';
-import {ImageStyle, TextStyle, ViewStyle, FlexStyle} from 'react-native';
-import theme from './light';
+
+import {ChooseThemeContext} from '../context/theme-context';
+import light from './light';
+import dark from './light';
 
 type NamedStyles<T> = {
   [P in keyof T]: ViewStyle | TextStyle | ImageStyle | FlexStyle;
 };
 
-export const ThemeProvider = ({children}: {children: ReactNode}) => (
-  <ReStyleThemeProvider theme={theme}>{children}</ReStyleThemeProvider>
-);
+export const ThemeProvider = ({children}: {children: ReactNode}) => {
+  const {theme} = useContext(ChooseThemeContext);
+  return <ReStyleThemeProvider theme={theme}>{children}</ReStyleThemeProvider>;
+};
 
-export type Theme = typeof theme;
+export type Theme = typeof light | typeof dark;
 export const useTheme = () => useReTheme<Theme>();
 
 export const makeStyle =
@@ -23,5 +27,3 @@ export const makeStyle =
     const curretTheme = useTheme();
     return styles(curretTheme);
   };
-
-export default theme;

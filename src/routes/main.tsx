@@ -15,6 +15,7 @@ const MainStackNavigation = () => (
     drawerContent={prop => <Drawer {...prop} />}
     screenOptions={{
       drawerType: 'back',
+      headerShown: false,
     }}>
     <AppStack.Screen name="Home" component={HomeScreen} />
     <AppStack.Screen name="About" component={AboutScreen} />
