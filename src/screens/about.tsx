@@ -9,7 +9,7 @@ const AboutScreen = ({}: StackNavigationProps<MainRoutes, 'About'>) => {
       flex={1}
       justifyContent="center"
       alignContent="center"
-      backgroundColor="white">
+      backgroundColor="background">
       <Text textAlign="center">About</Text>
     </Box>
   );
