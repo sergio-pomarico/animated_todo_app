@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from 'react';
 import {MainRoutes, StackNavigationProps} from '../types/navigation';
-import Box from '../shared/atoms/box';
-import Task from '../shared/components/task';
+import {Box} from '../shared/atoms';
+import {Task} from '../shared/components/';
 
 const HomeScreen = ({}: StackNavigationProps<MainRoutes, 'Home'>) => {
   const [checked, setChecked] = useState<boolean>(false);

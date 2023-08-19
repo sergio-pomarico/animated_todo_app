@@ -5,9 +5,7 @@ import {DrawerContentComponentProps} from '@react-navigation/drawer';
 
 import {ChooseThemeContext} from '../../context/theme-context';
 
-import Box from '../atoms/box';
-import Text from '../atoms/text';
-import Touchable from '../atoms/touchable';
+import {Box, Text, Touchable} from '../atoms';
 import {useTheme} from '../../config/theme';
 
 const Drawer: FC<DrawerContentComponentProps> = ({state, navigation}) => {

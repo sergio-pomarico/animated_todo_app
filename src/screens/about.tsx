@@ -1,7 +1,6 @@
 import React from 'react';
 import {MainRoutes, StackNavigationProps} from '../types/navigation';
-import Box from '../shared/atoms/box';
-import Text from '../shared/atoms/text';
+import {Box, Text} from '../shared/atoms';
 
 const AboutScreen = ({}: StackNavigationProps<MainRoutes, 'About'>) => {
   return (

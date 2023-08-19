@@ -4,7 +4,7 @@ import {MainRoutes} from '../types/navigation';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import HomeScreen from '../screens/home';
 import AboutScreen from '../screens/about';
-import Drawer from '../shared/components/drawer';
+import {Drawer} from '../shared/components';
 
 const AppStack = createDrawerNavigator<MainRoutes>();
 

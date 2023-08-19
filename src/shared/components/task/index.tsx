@@ -1,8 +1,7 @@
 import React, {FC} from 'react';
 import {useTheme} from '../../../config/theme';
 
-import Touchable from '../../atoms/touchable';
-import Box from '../../atoms/box';
+import {Box, Touchable} from '../../atoms';
 import Checkbox from '../checkbox';
 import TaskLabel from './label';
 
