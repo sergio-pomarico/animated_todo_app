@@ -9,9 +9,8 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
-import {Box, Text, Touchable} from '../../atoms';
+import {AnimatedBox, Text, Touchable} from '../../atoms';
 
-const AnimatedBox = Animated.createAnimatedComponent(Box);
 const AnimatedText = Animated.createAnimatedComponent(Text);
 
 interface Props {

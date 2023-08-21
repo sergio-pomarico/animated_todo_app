@@ -23,6 +23,7 @@ const theme = createTheme({
     secondaryForeground: palette.slate100,
     sidebarBackground: palette.slate30,
     sidebarForeground: palette.slate900,
+    headerBarBackground: palette.slate40,
   },
 });
 

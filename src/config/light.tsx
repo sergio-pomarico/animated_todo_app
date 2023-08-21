@@ -42,6 +42,7 @@ const theme = createTheme({
     secondaryForeground: palette.paper100,
     sidebarBackground: palette.navy20,
     sidebarForeground: palette.navy900,
+    headerBarBackground: palette.paper20,
   },
   borderRadii: {
     s: 4,
