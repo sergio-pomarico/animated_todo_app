@@ -4,13 +4,13 @@ import {useTheme} from '../../../config/theme';
 import {Box, Touchable} from '../../atoms';
 import Checkbox from '../checkbox';
 import TaskLabel from './label';
+import {Task} from '../../../data/task';
 
-interface Props {
-  isDone: boolean;
+interface Props extends Task {
   onToggleCheckbox: () => void;
 }
 
-const Task: FC<Props> = ({isDone, onToggleCheckbox}) => {
+const TaskItem: FC<Props> = ({subject, done, onToggleCheckbox}) => {
   const theme = useTheme();
   return (
     <Box
@@ -21,7 +21,7 @@ const Task: FC<Props> = ({isDone, onToggleCheckbox}) => {
       <Box width={32} height={32} mr="m">
         <Touchable onPress={onToggleCheckbox}>
           <Checkbox
-            checked={isDone}
+            checked={done}
             checkmarkColor={theme.colors.white}
             boxOutlineColor={theme.colors.foreground}
             highlightColor={theme.colors.primary}
@@ -29,12 +29,12 @@ const Task: FC<Props> = ({isDone, onToggleCheckbox}) => {
         </Touchable>
       </Box>
       <TaskLabel
-        strikethrough={isDone}
+        strikethrough={done}
         inactiveTextColor={theme.colors.secondaryForeground}
         textColor={theme.colors.foreground}>
-        Task name
+        {subject}
       </TaskLabel>
     </Box>
   );
 };
-export default Task;
+export default TaskItem;
