@@ -43,6 +43,7 @@ const theme = createTheme({
     sidebarBackground: palette.navy20,
     sidebarForeground: palette.navy900,
     headerBarBackground: palette.paper20,
+    appBarBackground: palette.white,
   },
   borderRadii: {
     s: 4,

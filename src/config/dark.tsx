@@ -24,6 +24,7 @@ const theme = createTheme({
     sidebarBackground: palette.slate30,
     sidebarForeground: palette.slate900,
     headerBarBackground: palette.slate40,
+    appBarBackground: palette.slate00,
   },
 });
 
