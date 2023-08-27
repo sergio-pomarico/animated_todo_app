@@ -8,16 +8,19 @@ import {Task} from '../../../data/task';
 
 interface Props extends Task {
   onToggleCheckbox: () => void;
+  height: number;
 }
 
-const TaskItem: FC<Props> = ({subject, done, onToggleCheckbox}) => {
+const TaskItem: FC<Props> = ({subject, done, height, onToggleCheckbox}) => {
   const theme = useTheme();
   return (
     <Box
       flexDirection="row"
       alignItems="center"
       paddingHorizontal="m"
-      marginVertical="m">
+      paddingVertical="m"
+      backgroundColor="background"
+      height={height}>
       <Box width={32} height={32} mr="m">
         <Touchable onPress={onToggleCheckbox}>
           <Checkbox
