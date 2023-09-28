@@ -17,9 +17,19 @@ const HomeScreen = ({}: StackNavigationProps<MainRoutes, 'Home'>) => {
       return newData;
     });
   }, []);
+  const handleRemoveItem = useCallback((item: Task) => {
+    setData(prevData => {
+      const newData = prevData.filter(i => i !== item);
+      return newData;
+    });
+  }, []);
   return (
     <Box flex={1} alignContent="center" backgroundColor="background">
-      <TaskList data={data} onToggleItem={handleToggleTaskItem} />
+      <TaskList
+        data={data}
+        onToggleItem={handleToggleTaskItem}
+        onDelete={handleRemoveItem}
+      />
     </Box>
   );
 };
