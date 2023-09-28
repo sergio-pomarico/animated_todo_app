@@ -34,9 +34,9 @@ const TaskItem: FC<Props> = ({subject, done, height, onToggleCheckbox}) => {
       <TaskLabel
         strikethrough={done}
         inactiveTextColor={theme.colors.secondaryForeground}
-        textColor={theme.colors.foreground}>
-        {subject}
-      </TaskLabel>
+        textColor={theme.colors.foreground}
+        subject={subject}
+      />
     </Box>
   );
 };

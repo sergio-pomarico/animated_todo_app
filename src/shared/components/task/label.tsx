@@ -1,4 +1,4 @@
-import React, {memo, ReactNode, useEffect} from 'react';
+import React, {memo, useEffect} from 'react';
 import Animated, {
   Easing,
   interpolateColor,
@@ -18,11 +18,11 @@ interface Props {
   textColor: string;
   inactiveTextColor: string;
   onPress?: () => void;
-  children?: ReactNode;
+  subject: string;
 }
 
 const TaskLabel = memo(
-  ({strikethrough, textColor, inactiveTextColor, onPress, children}: Props) => {
+  ({strikethrough, textColor, inactiveTextColor, onPress, subject}: Props) => {
     const containerOffset = useSharedValue(0);
     const containerAnimatedStyle = useAnimatedStyle(
       () => ({
@@ -75,6 +75,8 @@ const TaskLabel = memo(
         strikethroughWidth.value = withTiming(0, {duration: 400, easing});
       }
     });
+    const label =
+      subject.length < 32 ? subject : `${subject.substring(0, 32)}...`;
     return (
       <Touchable onPress={onPress}>
         <AnimatedBox position="relative" style={containerAnimatedStyle}>
@@ -83,13 +85,13 @@ const TaskLabel = memo(
             numberOfLines={1}
             lineHeight={22}
             style={textColorAnimatedStyle}>
-            {children}
+            {label}
           </AnimatedText>
           <AnimatedBox
             position="absolute"
             height={1}
             borderBottomWidth={1}
-            top={11}
+            top={10}
             style={strikethroughWidthAnimatedStyle}
             width="100%"
           />
