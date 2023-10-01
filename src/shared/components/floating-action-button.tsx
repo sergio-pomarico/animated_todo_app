@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
-import {Box, Text, Touchable} from '../atoms';
+import Icon from 'react-native-vector-icons/Feather';
+import {Box, Touchable} from '../atoms';
 
 interface FloatingAcctionButtonProps {
   onPress: () => void;
@@ -23,9 +24,7 @@ const FloatingAcctionButton: FC<FloatingAcctionButtonProps> = ({onPress}) => {
       shadowRadius={5}
       elevation={5}>
       <Touchable onPress={onPress}>
-        <Text color="white" fontSize={32} lineHeight={36}>
-          +
-        </Text>
+        <Icon color="white" size={24} name="plus" />
       </Touchable>
     </Box>
   );

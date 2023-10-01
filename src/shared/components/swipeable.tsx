@@ -13,9 +13,10 @@ import {
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
+import Icon from 'react-native-vector-icons/Feather';
 
 import AnimatedBox from '../atoms/animated-box';
-import {Box, Text} from '../atoms';
+import {Box} from '../atoms';
 import {Dimensions, StyleSheet} from 'react-native';
 
 interface SwipeableProps
@@ -80,9 +81,7 @@ const Swipeable: FC<SwipeableProps> = ({
           justifyContent="center"
           height={height}
           pr="xl">
-          <Text color="white" textAlign="center">
-            Delete
-          </Text>
+          <Icon color="white" size={24} name="trash" />
         </Box>
       </AnimatedBox>
       <PanGestureHandler

@@ -1,7 +1,7 @@
 import React, {FC, useCallback, useContext} from 'react';
-import {StyleSheet, Switch} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {DrawerContentComponentProps} from '@react-navigation/drawer';
+import Icon from 'react-native-vector-icons/Feather';
 
 import {ChooseThemeContext} from '../../context/theme-context';
 
@@ -23,9 +23,26 @@ const Drawer: FC<DrawerContentComponentProps> = ({state, navigation}) => {
       flex={1}
       style={{paddingTop: insets.top, paddingBottom: insets.bottom}}>
       <Box flex={1}>
-        <Text variant="sidebar" fontSize={24} my="l" lineHeight={28}>
-          Sergio Pomárico
-        </Text>
+        <Box
+          flexDirection="row"
+          alignItems="center"
+          justifyContent="space-between">
+          <Text
+            variant="sidebar"
+            fontSize={24}
+            my="l"
+            lineHeight={28}
+            fontWeight="bold">
+            Sergio Pomárico
+          </Text>
+          <Touchable onPress={handlerChange}>
+            <Icon
+              name={currentTheme === 'dark' ? 'sun' : 'moon'}
+              size={24}
+              color={theme.colors.white}
+            />
+          </Touchable>
+        </Box>
         {state.routeNames.map((route, index) => (
           <Touchable
             onPress={() => navigate(route)}
@@ -37,29 +54,6 @@ const Drawer: FC<DrawerContentComponentProps> = ({state, navigation}) => {
             </Box>
           </Touchable>
         ))}
-      </Box>
-      <Box
-        alignItems="center"
-        flexDirection="row"
-        justifyContent="center"
-        borderTopWidth={StyleSheet.hairlineWidth}
-        borderTopColor="sidebarForeground"
-        py="m">
-        <Text variant="sidebar" mr="m">
-          Light
-        </Text>
-        <Switch
-          value={currentTheme === 'dark'}
-          onChange={handlerChange}
-          thumbColor={theme.colors.primary}
-          trackColor={{
-            false: theme.colors.white,
-            true: theme.colors.secondaryForeground,
-          }}
-        />
-        <Text variant="sidebar" ml="m">
-          Dark
-        </Text>
       </Box>
     </Box>
   );
