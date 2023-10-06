@@ -1,11 +1,12 @@
-import React, {FC, useContext} from 'react';
+import React, {FC} from 'react';
 import {StatusBar as Bar} from 'react-native';
 
-import {ChooseThemeContext} from '../../context/theme-context';
 import {useTheme} from '../../config/theme';
+import {useSelector} from 'react-redux';
+import {RootState} from '../../store/reducer';
 
 const StatusBar: FC = () => {
-  const {currentTheme} = useContext(ChooseThemeContext);
+  const {theme: currentTheme} = useSelector((state: RootState) => state.ui);
   const theme = useTheme();
   const isDark = currentTheme === 'dark';
   return (

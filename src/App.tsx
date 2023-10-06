@@ -1,20 +1,22 @@
 import React from 'react';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import Navigation from './routes';
+import {Provider} from 'react-redux';
+
 import {ThemeProvider} from './config/theme';
-import {ChooseThemeProvider} from './context/theme-context';
-import StatusBar from './shared/components/status-bar';
+import Navigation from './routes';
+import store from './store/reducer';
+import {StatusBar} from './shared/components';
 
 const App = () => {
   return (
-    <ChooseThemeProvider>
+    <Provider store={store}>
       <StatusBar />
       <ThemeProvider>
         <SafeAreaProvider>
           <Navigation />
         </SafeAreaProvider>
       </ThemeProvider>
-    </ChooseThemeProvider>
+    </Provider>
   );
 };
 

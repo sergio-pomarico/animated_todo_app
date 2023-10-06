@@ -1,4 +1,6 @@
-import React, {useContext} from 'react';
+import React from 'react';
+import {RootState} from '../store/reducer';
+import {useSelector} from 'react-redux';
 
 import {MainRoutes} from '../types/navigation';
 import {createDrawerNavigator} from '@react-navigation/drawer';
@@ -6,13 +8,12 @@ import HomeScreen from '../screens/home';
 import AboutScreen from '../screens/about';
 import {Drawer} from '../shared/components';
 import {useTheme} from '../config/theme';
-import {ChooseThemeContext} from '../context/theme-context';
 
 const AppStack = createDrawerNavigator<MainRoutes>();
 
 const MainStackNavigation = () => {
   const theme = useTheme();
-  const {currentTheme} = useContext(ChooseThemeContext);
+  const {theme: currentTheme} = useSelector((state: RootState) => state.ui);
   const isDark = currentTheme === 'dark';
   return (
     <AppStack.Navigator

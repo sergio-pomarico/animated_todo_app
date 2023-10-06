@@ -1,21 +1,47 @@
-import React, {ReactNode, useContext} from 'react';
-import {ImageStyle, TextStyle, ViewStyle, FlexStyle} from 'react-native';
+import React, {ReactNode} from 'react';
+import {
+  ImageStyle,
+  TextStyle,
+  ViewStyle,
+  FlexStyle,
+  ColorSchemeName,
+} from 'react-native';
 import {
   useTheme as useReTheme,
   ThemeProvider as ReStyleThemeProvider,
 } from '@shopify/restyle';
 
-import {ChooseThemeContext} from '../context/theme-context';
 import light from './light';
-import dark from './light';
+import dark from './dark';
+import {useSelector} from 'react-redux';
+import {RootState} from '../store/reducer';
+
+interface MetaTheme {
+  id: ColorSchemeName;
+  theme: Theme;
+}
+
+const themes: MetaTheme[] = [
+  {
+    id: 'light',
+    theme: light,
+  },
+  {
+    id: 'dark',
+    theme: dark,
+  },
+];
 
 type NamedStyles<T> = {
   [P in keyof T]: ViewStyle | TextStyle | ImageStyle | FlexStyle;
 };
 
 export const ThemeProvider = ({children}: {children: ReactNode}) => {
-  const {theme} = useContext(ChooseThemeContext);
-  return <ReStyleThemeProvider theme={theme}>{children}</ReStyleThemeProvider>;
+  const {theme: currentTheme} = useSelector((state: RootState) => state.ui);
+  const choosenTheme = themes.find(t => t.id === currentTheme)?.theme;
+  return (
+    <ReStyleThemeProvider theme={choosenTheme}>{children}</ReStyleThemeProvider>
+  );
 };
 
 export type Theme = typeof light | typeof dark;
