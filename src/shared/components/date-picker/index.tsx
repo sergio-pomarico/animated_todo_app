@@ -25,11 +25,11 @@ const DateTimePicker = ({label, type}: DateTimePickerProps) => {
 
   const onLayout = (event: LayoutChangeEvent) => {
     const {height: datePickerHeight} = event.nativeEvent.layout;
-    setHeight(datePickerHeight);
+    setHeight(datePickerHeight + 24);
   };
   const style = useAnimatedStyle(() => {
     return {
-      height: visible ? withSpring(height + 24) : withTiming(0),
+      height: visible ? withSpring(height) : withTiming(0),
     };
   });
   return (

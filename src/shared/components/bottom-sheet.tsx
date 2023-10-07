@@ -1,4 +1,9 @@
-import React, {forwardRef, useCallback, useImperativeHandle} from 'react';
+import React, {
+  forwardRef,
+  ReactNode,
+  useCallback,
+  useImperativeHandle,
+} from 'react';
 import {Dimensions, StyleSheet} from 'react-native';
 import {
   Extrapolate,
@@ -18,7 +23,9 @@ import {
 import {useTheme} from '../../config/theme';
 import {AnimatedBox, Box} from '../atoms';
 
-interface BottomSheetProps {}
+interface BottomSheetProps {
+  children?: ReactNode;
+}
 
 export interface BottomSheetRefProps {
   scrollTo: (destination: number) => void;
@@ -30,7 +37,7 @@ const {height, width} = Dimensions.get('window');
 export const MAX_TRANSLATE_Y = -height;
 
 const BottomSheet = forwardRef<BottomSheetRefProps, BottomSheetProps>(
-  ({}, ref) => {
+  ({children}, ref) => {
     const translateY = useSharedValue(0);
     const active = useSharedValue(false);
     const theme = useTheme();
@@ -119,6 +126,7 @@ const BottomSheet = forwardRef<BottomSheetRefProps, BottomSheetProps>(
               alignSelf="center"
               marginVertical="sm"
             />
+            {children}
           </AnimatedBox>
         </PanGestureHandler>
       </>
