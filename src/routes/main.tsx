@@ -22,6 +22,7 @@ const MainStackNavigation = () => {
       drawerContent={prop => <Drawer {...prop} />}
       screenOptions={{
         drawerType: 'back',
+        drawerActiveBackgroundColor: 'transparent',
         headerStyle: {
           backgroundColor: theme.colors.appBarBackground,
         },

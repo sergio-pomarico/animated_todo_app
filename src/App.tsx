@@ -6,16 +6,19 @@ import {ThemeProvider} from './config/theme';
 import Navigation from './routes';
 import store from './store/reducer';
 import {StatusBar} from './shared/components';
+import {OverlayProvider} from './context/overlay-context';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <StatusBar />
-      <ThemeProvider>
-        <SafeAreaProvider>
-          <Navigation />
-        </SafeAreaProvider>
-      </ThemeProvider>
+      <OverlayProvider>
+        <StatusBar />
+        <ThemeProvider>
+          <SafeAreaProvider>
+            <Navigation />
+          </SafeAreaProvider>
+        </ThemeProvider>
+      </OverlayProvider>
     </Provider>
   );
 };
