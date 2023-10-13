@@ -18,7 +18,7 @@ const Button: FC<ButtonProps> = ({label, onPress}) => {
       justifyContent="center">
       <Text
         color="white"
-        fontSize={22}
+        fontSize={20}
         lineHeight={24}
         textAlign="center"
         fontWeight="bold">
