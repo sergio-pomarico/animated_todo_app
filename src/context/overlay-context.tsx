@@ -1,14 +1,15 @@
 import React, {FC, ReactNode, RefObject, createContext, useRef} from 'react';
 import {useSelector} from 'react-redux';
 import {Dimensions, StyleSheet, View} from 'react-native';
-import {Box} from '../shared/atoms';
-import {RootState} from '../store/reducer';
 import {Canvas, Image, ImageShader, Circle} from '@shopify/react-native-skia';
 import {
   SharedValue,
   useDerivedValue,
   useSharedValue,
 } from 'react-native-reanimated';
+
+import {RootState} from '../types/redux';
+import {Box} from '../shared/atoms';
 
 interface OverlayContextProps {
   ref: RefObject<View> | null;
