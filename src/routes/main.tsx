@@ -1,5 +1,4 @@
 import React from 'react';
-import {RootState} from '../store/reducer';
 import {useSelector} from 'react-redux';
 
 import {MainRoutes} from '../types/navigation';
@@ -8,6 +7,7 @@ import HomeScreen from '../screens/home';
 import AboutScreen from '../screens/about';
 import {Drawer} from '../shared/components';
 import {useTheme} from '../config/theme';
+import {RootState} from '../types/redux';
 
 const AppStack = createDrawerNavigator<MainRoutes>();
 
@@ -22,6 +22,7 @@ const MainStackNavigation = () => {
       drawerContent={prop => <Drawer {...prop} />}
       screenOptions={{
         drawerType: 'back',
+        headerShown: false,
         drawerActiveBackgroundColor: 'transparent',
         headerStyle: {
           backgroundColor: theme.colors.appBarBackground,

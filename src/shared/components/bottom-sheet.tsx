@@ -109,6 +109,7 @@ const BottomSheet = forwardRef<BottomSheetRefProps, BottomSheetProps>(
           onTouchStart={() => {
             scrollTo(0);
           }}
+          zIndex={3}
         />
         <PanGestureHandler onGestureEvent={gestureHandler}>
           <AnimatedBox
@@ -117,7 +118,8 @@ const BottomSheet = forwardRef<BottomSheetRefProps, BottomSheetProps>(
             backgroundColor="appBarBackground"
             width={width}
             position="absolute"
-            top={height}>
+            top={height}
+            zIndex={4}>
             <Box
               width={width / 3}
               height={5}

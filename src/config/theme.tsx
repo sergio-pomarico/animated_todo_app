@@ -14,7 +14,7 @@ import {
 import light from './light';
 import dark from './dark';
 import {useSelector} from 'react-redux';
-import {RootState} from '../store/reducer';
+import {RootState} from '../types/redux';
 
 interface MetaTheme {
   id: ColorSchemeName;

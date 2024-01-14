@@ -12,7 +12,7 @@ import {Gesture, GestureDetector} from 'react-native-gesture-handler';
 
 import {RootRefContext} from '../../context/overlay-context';
 import {setOverlay1, setOverlay2, setTheme} from '../../store/ui';
-import {RootState} from '../../store/reducer';
+import {RootState} from '../../types/redux';
 import {withTiming} from 'react-native-reanimated';
 
 const wait = async (ms: number) =>

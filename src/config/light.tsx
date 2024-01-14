@@ -29,6 +29,7 @@ const theme = createTheme({
     l: 20,
     xl: 24,
     xxl: 32,
+    xxxl: 64,
   },
   colors: {
     black: palette.black,

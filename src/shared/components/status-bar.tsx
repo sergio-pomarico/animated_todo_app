@@ -3,7 +3,7 @@ import {StatusBar as Bar} from 'react-native';
 
 import {useTheme} from '../../config/theme';
 import {useSelector} from 'react-redux';
-import {RootState} from '../../store/reducer';
+import {RootState} from '../../types/redux';
 
 const StatusBar: FC = () => {
   const {theme: currentTheme} = useSelector((state: RootState) => state.ui);
