@@ -1,21 +1,20 @@
 import React, {FC} from 'react';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 import {AnimatedBox, Box, Touchable} from '../atoms';
+import {AnimatedBoxProps} from '../atoms/animated-box';
 
-interface HeaderBarProps {
+type HeaderBarProps = AnimatedBoxProps & {
   onPress: () => void;
-}
+};
 
-const HeaderBar: FC<HeaderBarProps> = ({onPress}) => {
-  const insets = useSafeAreaInsets();
+const HeaderBar: FC<HeaderBarProps> = ({onPress, style, onLayout}) => {
   return (
     <AnimatedBox
       position="absolute"
-      top={insets.top + 10}
-      left={0}
-      right={0}
-      zIndex={2}>
+      zIndex={2}
+      width="100%"
+      style={style}
+      onLayout={onLayout}>
       <Box
         flexDirection="row"
         alignItems="center"
@@ -24,9 +23,12 @@ const HeaderBar: FC<HeaderBarProps> = ({onPress}) => {
         backgroundColor="headerBarBackground"
         p="sm"
         borderRadius="l"
-        minHeight={44}>
+        shadowColor="secondaryForeground"
+        shadowOffset={{width: 0, height: 1}}
+        shadowOpacity={0.25}
+        shadowRadius={4}>
         <Touchable onPress={onPress}>
-          <Box width={22} height={22} justifyContent="space-around">
+          <Box width={22} height={18} justifyContent="space-around">
             <Box height={2} backgroundColor="foreground" width="100%" />
             <Box height={2} backgroundColor="foreground" width="100%" />
             <Box height={2} backgroundColor="foreground" width="100%" />
