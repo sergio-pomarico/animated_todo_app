@@ -8,6 +8,7 @@ import HeaderBar from './header-bar';
 import Input from './input';
 import StatusBar from './status-bar';
 import Task from './task';
+import Toast from './toast';
 import TaskList from './task-list';
 
 export {
@@ -22,4 +23,5 @@ export {
   StatusBar,
   Task,
   TaskList,
+  Toast,
 };
