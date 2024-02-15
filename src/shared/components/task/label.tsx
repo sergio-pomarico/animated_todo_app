@@ -1,5 +1,5 @@
 import React, {memo, useEffect} from 'react';
-import Animated, {
+import {
   Easing,
   interpolateColor,
   useAnimatedStyle,
@@ -9,9 +9,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
-import {AnimatedBox, Text, Touchable} from '../../atoms';
-
-const AnimatedText = Animated.createAnimatedComponent(Text);
+import {AnimatedBox, AnimatedText, Touchable} from '../../atoms';
 
 interface Props {
   strikethrough: boolean;
